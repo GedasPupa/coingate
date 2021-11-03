@@ -1,13 +1,361 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.background {
+  position: absolute;
+  border-radius: 53px;
+  height: 860px;
+  left: 15%;
+  right: -15%;
+  width: 84.3vw;
+  top: 0px;
+  background: #5022ED;
+  transform: matrix(1, -0.04, -0.04, -1, 0, 0);
 }
+
+.main-flex {
+  position: relative;
+  top: 0px;
+}
+
+.main-left {
+  position: absolute;
+  top: 235px;
+  left: 500px;
+  width: 625px;
+  color: #FFFFFF;
+}
+
+.main-title {
+  font-size: 60px;
+  line-height: 66px;
+  margin-bottom: 40px;
+}
+
+.text {
+  font-size: 24px;
+  line-height: 31.2px;
+  margin-bottom: 42px;
+}
+
+.green {
+  color: #16DFB5;
+}
+
+.start-now {
+  color: #16DFB5;
+  font-size: 18px;
+  line-height: 20.7px;
+}
+
+.entitie {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.main-right {
+  position: absolute;
+  top: 190px;
+  left: 1300px;
+}
+
+.main-right-back {
+  background-color: #E9F6FF;
+  width: 466px;
+  height: 510.56px;
+  transform: rotate(-5.53deg);
+  border-radius: 20px;
+}
+
+.form {
+  position: absolute;
+  top: 42px;
+  left: 37px;
+  width: 465px;
+  height: 528px;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  height: 48px;
+  width: 412px;
+  border: 1px solid #D9D9D9;
+  border-radius: 20px;
+  margin-left: 27px;
+  display: flex;
+  text-align: center;
+}
+
+.form-row:first-child {
+  margin-top: 107px;
+}
+
+.form-row:nth-child(2) {
+  margin-top: 25px;
+}
+
+.form-row > label {
+  width: 20%;
+  height: 46px;
+  font-size: 15px;
+  line-height: 22.5px;
+  margin-top: 12px;
+}
+
+.form-row > input {
+  width: 50%;
+  height: 45px;
+  padding-left: 5%;
+  padding-right: 10%;
+  font-family: 'PingFang SC', 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 22.5px;
+  border: none;
+  text-align: center;
+}
+
+.form-row > input:focus {
+  outline: none;
+}
+
+.form-row > button {
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 10px;
+  background-size: 22px 22px;
+  text-align: left;
+  width: 30%;
+  height: 46px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: transparent;
+}
+
+.form-row > button > span {
+  line-height: 14px;
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.method {
+  margin-top: 28px;
+  margin-bottom: 37px;
+  margin-left: 27px;
+  font-size: 15px;
+  line-height: 22.5px;
+}
+
+.line {
+  height: 30px;
+  width: 1px;
+  margin-top: 9px;
+  border: 1px solid #D9D9D9;
+}
+
+.form-row:last-of-type {
+  height: 55px;
+  font-size: 15px;
+}
+
+#payment {
+  border: none;
+  width: 80%;
+  font-size: 16px;
+}
+
+.payment-img {
+  width: 44px;
+  background-image: './sepa.png';
+  margin-left: 20px;
+}
+
+.btn-buy {
+  margin-top: 80px;
+  width: 415px;
+  height: 48px;
+  background-color: #16DFB5;
+  border-radius: 5px 24px 24px 20px;
+  margin-left: 27px;
+  border: none;
+  line-height: 48px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+button, .btn-buy:hover {
+  cursor: pointer;
+}
+.btn-buy:hover {
+  box-shadow: 2px 4px 6px#16DFB5;
+}
+
+@media screen and (max-width: 1950px) {
+  .main-left {
+    left: 320px;
+    width: 580px;
+  }
+  .main-title {
+    font-size: 52px;
+    line-height: 62px;
+  }
+  .text {
+    font-size: 20px;
+    line-height: 28px;
+    width: 520px;
+  }
+  .main-right {
+    left: 1100px;
+  }
+  .background {
+    width: 82.8vw;
+  }
+}
+
+@media screen and (max-width: 1675px) {
+  .main-right-back {
+    width: 401px;
+  }
+  .form {
+    width: 400px;
+  }
+  .form-row {
+    width: 355px;
+    margin-left: 23px;
+  }
+  .btn-buy {
+    width: 357px;
+    margin-left: 23px;
+  }
+  .background {
+    width: 82.5vw;
+  }
+  .main-right {
+    left: 1050px;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .main-left {
+    width: 520px;
+  }
+  .main-title {
+    font-size: 49px;
+    line-height: 60px;
+  }
+  .text {
+    font-size: 18px;
+    line-height: 25px;
+    width: 470px;
+  }
+  .main-right {
+    left: 950px;
+  }
+  .background {
+    width: 82.8vw;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .main-left {
+    left: 280px;
+    width: 390px;
+  }
+  .background {
+    width: 83.5vw;
+  }
+  .main-title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  .text {
+    font-size: 16px;
+    line-height: 25px;
+    width: 420px;
+  }
+  .main-right {
+    left: 820px;
+  }
+}
+
+@media screen and (max-width: 1290px) {
+  .main-left {
+    left: 250px;
+  }
+  .main-right {
+    left: 760px;
+  }
+  .main-right-back {
+    width: 360px;
+    height: 470px;
+  }
+  .form {
+    width: 360px;
+    height: 475px;
+  }
+  .form-row {
+    width: 320px;
+    margin-left: 20px;
+  }
+  .btn-buy {
+    width: 321px;
+    margin-left: 23px;
+    margin-top: 70px;
+  }
+  #payment {
+    width: 75%;
+  }
+  .form-row > label {
+    width: 15%;
+  }
+  .form-row > input {
+    width: 50%;
+    font-size: 16px;
+  }
+  .form-row > button {
+    width: 35%;
+  }
+  .form-row:first-child {
+    margin-top: 70px;
+  }
+  .background {
+    width: 82.1vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .background {
+    left: 7%; 
+    width: 95vw;
+  }
+  .main-left {
+    left: 200px;
+  }
+  .main-right {
+    left: 700px;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* @media screen and (max-width: FOR TABLET / MOBILE) ..... */

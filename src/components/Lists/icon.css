@@ -1,0 +1,87 @@
+button {
+    height: 50px;
+    width: 160px;
+    padding: 10px 10px 10px 50px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 10px;
+    background-size: 22px 22px;
+    text-align: left;
+}
+
+.coin-list, .fiat-list {
+    position: absolute;
+    top: 460px;
+    left: 1600px;
+    list-style-type: none;
+    overflow-y: scroll;
+    height: 200px;
+    width: 175px;
+    display:inline-block;
+    vertical-align:top;
+    padding-left: 0px;
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+}
+.fiat-list {
+    top: 385px;
+}
+.coin-list button, .fiat-list button {
+    background-color: #FFFFFF;
+    border: none;
+}
+.coin-list button:hover, .fiat-list button:hover {
+    background-color: #d8d8d8;
+}
+
+@media screen and (max-width: 1950px) {
+    .coin-list, .fiat-list {
+        left: 1400px;
+    }
+}
+@media screen and (max-width: 1675px) {
+    .coin-list, .fiat-list {
+        left: 1292px;
+
+    }
+}
+@media screen and (max-width: 1550px) {
+    .coin-list, .fiat-list {
+        left: 1192px;
+
+    }
+}
+@media screen and (max-width: 1440px) {
+    .coin-list, .fiat-list {
+        left: 1060px;
+    }
+}
+
+@media screen and (max-width: 1290px) {
+    .coin-list {
+        left: 965px;
+        top: 422px;
+    }
+}
+@media screen and (max-width: 1290px) {
+    .fiat-list {
+        left: 965px;
+        top: 350px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .coin-list, .fiat-list {
+        left: 900px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+} 
+::-webkit-scrollbar-thumb {
+    background-color: #16DFB5;
+} 
