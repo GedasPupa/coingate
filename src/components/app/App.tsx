@@ -1,39 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { BuySell } from '../main/Main';
 import axios from 'axios';
+import { BuySell } from '../main/Main';
 import { Header } from '../header/Header';
-import CoinsList from '../Lists/CoinsList';
-import FiatList from '../Lists/FiatList';
+import { CoinsList } from '../Lists/CoinsList';
+import { FiatList } from '../Lists/FiatList';
 
-const paymentMethods = ['Credit/Debit Card', 'Bank Transfer', 'Paypal', 'Mobile Account'];
+const paymentMethods: string[] = ['Credit/Debit Card', 'Bank Transfer', 'Paypal', 'Mobile Account'];
 
-function App() {
-    let [inputPay, setInputPay] = useState('');
-    let [inputBuy, setInputBuy] = useState('');
-    let [payCoin, setPayCoin] = useState('EUR');
-    let [buyCoin, setBuyCoin] = useState('BTC');
-    let [results, setResults] = useState('');
-    let [payment, setPayment] = useState(paymentMethods[0]);
-    let [toggle, setToggle] = useState(false);
-    let [toggleCoin, setToggleCoin] = useState(false);
+export const App: React.FC = () => {
+    let [inputPay, setInputPay] = useState<string>('');
+    let [inputBuy, setInputBuy] = useState<string>('');
+    let [payCoin, setPayCoin] = useState<string>('EUR');
+    let [buyCoin, setBuyCoin] = useState<string>('BTC');
+    let [results, setResults] = useState<string | null>(null);
+    let [payment, setPayment] = useState<string>(paymentMethods[0]);
+    let [toggle, setToggle] = useState<boolean>(false);
+    let [toggleCoin, setToggleCoin] = useState<boolean>(false);
     
-    let [rate, setRate] = useState(1);
-    let [inp, setInp] = useState('');
-    let [focus, setFocus] = useState(true);
+    let [rate, setRate] = useState<number | null>(null);
+    let [inp, setInp] = useState<string>('');
+    let [focus, setFocus] = useState<boolean>(true);
     
     useEffect(() => {
         const fetchData = async () => {
-          const result = await axios(
+            const result = axios(
             // 'https://api.coingate.com/v2/rates',
             'http://localhost:3000/merchant',
-          );
-            setResults(result.data[buyCoin]);              
-        };     
+            );          
+            result.then(d => setResults(d.data[buyCoin]))
+            .catch(err => console.log(err));
+        };
         fetchData();
-    }, [payCoin, buyCoin]); 
+    }, [payCoin, buyCoin]);
 
     useEffect(() => {
-        if (results === '') return;
+        if (results === null) return;
         const asArray = Object.entries(results);
         const rate = +asArray.filter(coin => coin[0] === payCoin)[0].splice(1)[0];
         setRate(rate);
@@ -42,11 +43,11 @@ function App() {
 
     useEffect(() => {
         setInputBuy((prev: string): string => {
-            if ( +inputPay * rate === +prev ) {
-                    return prev;
-                } else {                
-                    return focus ? Number(+inputPay / rate).toFixed(8) : inp;
-                }
+            if ( rate && +inputPay * rate === +prev ) {
+                return prev;
+            } else if (rate) {                
+                return focus ? Number(+inputPay / rate).toFixed(8) : inp;
+            } else return '';
         });
         // eslint-disable-next-line
     }, [inputPay, rate]);
@@ -54,36 +55,33 @@ function App() {
     useEffect(() => {            
             setInputPay((prev: string): string => {
                 setInp(inputBuy);
-                if (+inputBuy / rate === +prev ) {
+                if ( rate && +inputBuy / rate === +prev ) {
                     return prev.toString();
-                } else {
-                    
+                } else if ( rate ) {                    
                     return +Number(+inputBuy * rate).toFixed(2) % 1 === 0
                     ? Number(+inputBuy * rate).toFixed(0)
                     : Number(+inputBuy * rate).toFixed(2);
-                }                  
+                } else return '';           
             });
         // eslint-disable-next-line
     }, [inputBuy]);
 
-    function toggleFunc() {
+    function toggleFunc(): void {
         if (toggleCoin) {
             setToggleCoin(!toggleCoin);
         }
         setToggle(!toggle);
     }
 
-    function toggleCoinFunc() {
+    function toggleCoinFunc(): void {
         if (toggle) {
             setToggle(!toggle);
         }
         setToggleCoin(!toggleCoin);
     }
 
-    function focusToggle():void {
-        setFocus(!focus);
-        console.log('this is FOCUS');
-        
+    function focusToggle(): void {
+        setFocus(!focus);    
     }
 
     return(
@@ -101,7 +99,7 @@ function App() {
             buy={buyCoin}
             paymentMethods={paymentMethods}
             payment={payment}
-            focusToggle={focusToggle} 
+            focusToggle={focusToggle}
         />
         <CoinsList
             toggleCoin={toggleCoin}
@@ -130,5 +128,3 @@ function App() {
       </>
     )
 }
-
-export default App;

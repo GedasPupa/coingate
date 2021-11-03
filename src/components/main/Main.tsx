@@ -43,6 +43,8 @@ export const BuySell: React.FC<Props> = (props) => {
                                 type="reset"
                                 style={{backgroundImage: `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/${pay.toLowerCase()}.png?raw=true)`}}
                                 onClick={toggleFunc}> {pay} <span>&#8744;</span>
+
+                                {/* <span>&#8744;</span> */}
                             </button>
                         </div>
                         <div className="form-row">
@@ -52,10 +54,10 @@ export const BuySell: React.FC<Props> = (props) => {
                             <button 
                                 type="reset" 
                                 style={{backgroundImage: `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/${buy.toLowerCase()}.png?raw=true)`}}
-                                onClick={toggleCoinFunc}>{buy} <span>&#8744;</span>
+                                onClick={toggleCoinFunc}>{buy} <span><i style={{fontSize: "16px"}} className="fa fa-angle-down" aria-hidden="true"></i></span>
                             </button>
                         </div>
-                        <p className="method">Payment method</p>
+                        <p className="method">Payment method </p>
                         <div className="form-row">
                             <img src="./sepa.png" alt="logo" className="payment-img" />
                             <select name="payment" id="payment" onChange={handlePayment} value={payment}>

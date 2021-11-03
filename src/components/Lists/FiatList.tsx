@@ -27,7 +27,7 @@ interface Props {
     toggleFunc: MouseEventHandler<HTMLUListElement> | undefined
 }
 
-const FiatList: React.FC<Props> = (props) => {
+export const FiatList: React.FC<Props> = (props) => {
     let {handlePay, toggle, toggleFunc} = props;
 
     return(
@@ -41,5 +41,3 @@ const FiatList: React.FC<Props> = (props) => {
         </ul>
     )
 }
-
-export default FiatList;

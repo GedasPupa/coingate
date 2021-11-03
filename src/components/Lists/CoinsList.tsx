@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react';
 import './icon.css';
 
-export const coinIcons = [
+const coinIcons = [
     `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/btc.png?raw=true)`,
     `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/ltc.png?raw=true)`,
     `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/eth.png?raw=true)`,
@@ -27,7 +27,7 @@ interface Props {
     toggleCoinFunc: MouseEventHandler<HTMLUListElement>
 }
 
-const CoinsList: React.FC<Props> = (props) => {
+export const CoinsList: React.FC<Props> = (props) => {
     const {handleBuy, toggleCoin, toggleCoinFunc} = props;
 
     return(
@@ -45,5 +45,3 @@ const CoinsList: React.FC<Props> = (props) => {
         </ul>
     )
 }
-
-export default CoinsList;
