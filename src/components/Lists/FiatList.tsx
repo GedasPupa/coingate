@@ -20,9 +20,7 @@ const none = {
 }
 
 interface Props {
-    handlePay: MouseEventHandler<HTMLElement>,
-    // handlePay: MouseEventHandler<HTMLButtonElement>,
-
+    handlePay: MouseEventHandler<HTMLButtonElement>,
     toggle: boolean,
     toggleFunc: MouseEventHandler<HTMLUListElement> | undefined
 }

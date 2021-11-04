@@ -8,21 +8,21 @@ import { FiatList } from '../Lists/FiatList';
 const paymentMethods: string[] = ['Credit/Debit Card', 'Bank Transfer', 'Paypal', 'Mobile Account'];
 
 export const App: React.FC = () => {
-    let [inputPay, setInputPay] = useState<string>('');
-    let [inputBuy, setInputBuy] = useState<string>('');
-    let [payCoin, setPayCoin] = useState<string>('EUR');
-    let [buyCoin, setBuyCoin] = useState<string>('BTC');
-    let [results, setResults] = useState<string | null>(null);
-    let [payment, setPayment] = useState<string>(paymentMethods[0]);
-    let [toggle, setToggle] = useState<boolean>(false);
-    let [toggleCoin, setToggleCoin] = useState<boolean>(false);
+    const [inputPay, setInputPay] = useState<string>('');
+    const [inputBuy, setInputBuy] = useState<string>('');
+    const [payCoin, setPayCoin] = useState<string>('EUR');
+    const [buyCoin, setBuyCoin] = useState<string>('BTC');
+    const [results, setResults] = useState<string | null>(null);
+    const [payment, setPayment] = useState<string>(paymentMethods[0]);
+    const [toggle, setToggle] = useState<boolean>(false);
+    const [toggleCoin, setToggleCoin] = useState<boolean>(false);
     
-    let [rate, setRate] = useState<number | null>(null);
-    let [inp, setInp] = useState<string>('');
-    let [focus, setFocus] = useState<boolean>(true);
+    const [rate, setRate] = useState<number | null>(null);
+    const [inp, setInp] = useState<string>('');
+    const [focus, setFocus] = useState<boolean>(true);
     
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = () => {
             const result = axios(
             // 'https://api.coingate.com/v2/rates',
             'http://localhost:3000/merchant',
@@ -43,10 +43,11 @@ export const App: React.FC = () => {
 
     useEffect(() => {
         setInputBuy((prev: string): string => {
+            setInp(inputPay);
             if ( rate && +inputPay * rate === +prev ) {
                 return prev;
             } else if (rate) {                
-                return focus ? Number(+inputPay / rate).toFixed(8) : inp;
+                return focus ? (+Number(+inputPay / rate).toFixed(8) === 0 ? '' : Number(+inputPay / rate).toFixed(8)) : inp;
             } else return '';
         });
         // eslint-disable-next-line
@@ -56,11 +57,11 @@ export const App: React.FC = () => {
             setInputPay((prev: string): string => {
                 setInp(inputBuy);
                 if ( rate && +inputBuy / rate === +prev ) {
-                    return prev.toString();
+                    return prev;
                 } else if ( rate ) {                    
-                    return +Number(+inputBuy * rate).toFixed(2) % 1 === 0
+                    return !focus ? (+Number(+inputBuy * rate).toFixed(2) % 1 === 0
                     ? Number(+inputBuy * rate).toFixed(0)
-                    : Number(+inputBuy * rate).toFixed(2);
+                    : Number(+inputBuy * rate).toFixed(2)) : inp;
                 } else return '';           
             });
         // eslint-disable-next-line
@@ -105,24 +106,14 @@ export const App: React.FC = () => {
             toggleCoin={toggleCoin}
             toggleCoinFunc={toggleCoinFunc} 
             handleBuy={({currentTarget}) => {
-                let ttt = currentTarget.getAttribute("name");
-                if (!ttt) {
-                    ttt = "BTC";
-                }
-                setBuyCoin(currentTarget.getAttribute("name") ? ttt : "BTC");
+                setBuyCoin(currentTarget.getAttribute("name") ? currentTarget.getAttribute("name")! : "BTC");
             }} 
         />
         <FiatList
             toggle={toggle}
             toggleFunc={toggleFunc}
-            // handlePay={handlePay}
             handlePay={({currentTarget}) => {
-                console.log('TARGET', currentTarget.getAttribute("name")); 
-                let ttt = currentTarget.getAttribute("name");
-                if (!ttt) {
-                    ttt = "EUR";
-                }
-                setPayCoin(currentTarget.getAttribute("name") ? ttt : "EUR");
+                setPayCoin(currentTarget.getAttribute("name") ? currentTarget.getAttribute("name")! : "EUR");
             }} 
         />
       </>

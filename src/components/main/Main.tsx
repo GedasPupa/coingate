@@ -42,9 +42,7 @@ export const BuySell: React.FC<Props> = (props) => {
                             <button 
                                 type="reset"
                                 style={{backgroundImage: `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/${pay.toLowerCase()}.png?raw=true)`}}
-                                onClick={toggleFunc}> {pay} <span>&#8744;</span>
-
-                                {/* <span>&#8744;</span> */}
+                                onClick={toggleFunc}> {pay} <span><i style={{fontSize: "16px"}} className="fa fa-angle-down" aria-hidden="true"></i></span>
                             </button>
                         </div>
                         <div className="form-row">
