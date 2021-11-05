@@ -67,7 +67,7 @@ export const BuySell: React.FC<Props> = (props) => {
                     </div>
                     <p className="text col-lg-6 col-12">Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!
                     <br/><br/>
-                    <a href="http://example.com/" target="_blank" className="start-now" rel="noreferrer">Start now<span className="entitie">&gt;</span></a>
+                    <a href="http://example.com/" target="_blank" className="start-now" rel="noreferrer">Start now<span className="entitie"><i className="fa fa-angle-right"></i></span></a>
                     </p>                    
                 </div>
             </div>

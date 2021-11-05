@@ -1,8 +1,10 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-body,
-body * {
+body {
+      overflow-x: hidden;
+}
+body, body * {
     margin: 0;
     padding: 0;
     vertical-align: top;
@@ -55,14 +57,17 @@ body * {
 .start-now {
   color: #16DFB5;
   font-size: 18px;
-  line-height: 20.7px;
+  line-height: 33px;
 }
-
-.entitie {
-  margin-left: 10px;
-  font-weight: bold;
+a { 
+  text-decoration: none;
 }
-
+a.start-now:hover {
+  color: #16DFB5;
+}
+.entitie > .fa.fa-angle-right {
+  margin-left: 8px;
+}
 .main-right-back {
   position: relative;
   background-color: #E9F6FF;
@@ -207,7 +212,7 @@ button, .btn-buy:hover {
   .text.col-lg-6 {
     position: relative;
     top: -280px;
-  } 
+  }
 }
 
 /* Chrome, Safari, Edge, Opera */
