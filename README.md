@@ -1,5 +1,8 @@
 # Junior Frontend Developer evaluation task
 
+Solution deployed on: [Netlify](https://coingate-junior-task.netlify.app/)
+
+CORS Changer: [Moesif Origin](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)
 
 ## Task description
 
