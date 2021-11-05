@@ -1,4 +1,5 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 body,
 body * {
@@ -11,42 +12,41 @@ body * {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.main {
+  position: relative;
+  top: 101px;
+  color: #FFFFFF;
+}
+
+.container {
+  padding-top: 70px;
+}
+
 .background {
   position: absolute;
   border-radius: 53px;
-  height: 860px;
-  left: 15%;
-  right: -15%;
-  width: 84.3vw;
-  top: 0px;
+  height: 1493.46px;
+  top: -10%;
+  left: 4.67%;
+  right: -5.34%;
   background: #5022ED;
   transform: matrix(1, -0.04, -0.04, -1, 0, 0);
-}
-
-.main-flex {
-  position: relative;
-  top: 0px;
-}
-
-.main-left {
-  position: absolute;
-  top: 235px;
-  left: 500px;
-  width: 625px;
-  color: #FFFFFF;
+  z-index: -10;
 }
 
 .main-title {
   font-size: 60px;
   line-height: 66px;
   margin-bottom: 40px;
+  padding-right: 100px;
+  font-weight: bold;
 }
 
 .text {
   font-size: 24px;
   line-height: 31.2px;
-  margin-bottom: 42px;
 }
+
 
 .green {
   color: #16DFB5;
@@ -63,30 +63,27 @@ body * {
   font-weight: bold;
 }
 
-.main-right {
-  position: absolute;
-  top: 190px;
-  left: 1300px;
-}
-
 .main-right-back {
+  position: relative;
   background-color: #E9F6FF;
   width: 466px;
   height: 510.56px;
   transform: rotate(-5.53deg);
   border-radius: 20px;
+  left: 100px;
+  margin-bottom: 100px;
 }
 
 .form {
-  position: absolute;
-  top: 42px;
-  left: 37px;
+  position: relative;
   width: 465px;
   height: 528px;
   border-radius: 20px;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
+  transform: rotate(5.53deg);
+
 }
 
 .form-row {
@@ -201,151 +198,16 @@ button, .btn-buy:hover {
 .btn-buy:hover {
   box-shadow: 2px 4px 6px#16DFB5;
 }
-
-@media screen and (max-width: 1950px) {
-  .main-left {
-    left: 320px;
-    width: 580px;
-  }
-  .main-title {
-    font-size: 52px;
-    line-height: 62px;
-  }
-  .text {
-    font-size: 20px;
-    line-height: 28px;
-    width: 520px;
-  }
-  .main-right {
-    left: 1100px;
-  }
-  .background {
-    width: 82.8vw;
-  }
+.fa.fa-angle-down {
+  font-weight: 600;
+  font-size: 14px;
 }
 
-@media screen and (max-width: 1675px) {
-  .main-right-back {
-    width: 401px;
-  }
-  .form {
-    width: 400px;
-  }
-  .form-row {
-    width: 355px;
-    margin-left: 23px;
-  }
-  .btn-buy {
-    width: 357px;
-    margin-left: 23px;
-  }
-  .background {
-    width: 82.5vw;
-  }
-  .main-right {
-    left: 1050px;
-  }
-}
-
-@media screen and (max-width: 1550px) {
-  .main-left {
-    width: 520px;
-  }
-  .main-title {
-    font-size: 49px;
-    line-height: 60px;
-  }
-  .text {
-    font-size: 18px;
-    line-height: 25px;
-    width: 470px;
-  }
-  .main-right {
-    left: 950px;
-  }
-  .background {
-    width: 82.8vw;
-  }
-}
-
-@media screen and (max-width: 1440px) {
-  .main-left {
-    left: 280px;
-    width: 390px;
-  }
-  .background {
-    width: 83.5vw;
-  }
-  .main-title {
-    font-size: 36px;
-    line-height: 42px;
-  }
-  .text {
-    font-size: 16px;
-    line-height: 25px;
-    width: 420px;
-  }
-  .main-right {
-    left: 820px;
-  }
-}
-
-@media screen and (max-width: 1290px) {
-  .main-left {
-    left: 250px;
-  }
-  .main-right {
-    left: 760px;
-  }
-  .main-right-back {
-    width: 360px;
-    height: 470px;
-  }
-  .form {
-    width: 360px;
-    height: 475px;
-  }
-  .form-row {
-    width: 320px;
-    margin-left: 20px;
-  }
-  .btn-buy {
-    width: 321px;
-    margin-left: 23px;
-    margin-top: 70px;
-  }
-  #payment {
-    width: 75%;
-  }
-  .form-row > label {
-    width: 15%;
-  }
-  .form-row > input {
-    width: 50%;
-    font-size: 16px;
-  }
-  .form-row > button {
-    width: 35%;
-  }
-  .form-row:first-child {
-    margin-top: 70px;
-  }
-  .background {
-    width: 82.1vw;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .background {
-    left: 7%; 
-    width: 95vw;
-  }
-  .main-left {
-    left: 200px;
-  }
-  .main-right {
-    left: 700px;
-  }
+@media (min-width: 992px) {
+  .text.col-lg-6 {
+    position: relative;
+    top: -280px;
+  } 
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -359,5 +221,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-
-/* @media screen and (max-width: FOR TABLET / MOBILE) ..... */

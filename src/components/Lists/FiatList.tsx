@@ -22,7 +22,7 @@ const none = {
 interface Props {
     handlePay: MouseEventHandler<HTMLButtonElement>,
     toggle: boolean,
-    toggleFunc: MouseEventHandler<HTMLUListElement> | undefined
+    toggleFunc: MouseEventHandler<HTMLUListElement>
 }
 
 export const FiatList: React.FC<Props> = (props) => {

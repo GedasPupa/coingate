@@ -24,10 +24,10 @@ export const App: React.FC = () => {
     useEffect(() => {
         const fetchData = () => {
             const result = axios(
-            // 'https://api.coingate.com/v2/rates',
-            'http://localhost:3000/merchant',
+            'https://api.coingate.com/v2/rates',
+            // 'http://localhost:3000/merchant', // for json-server
             );          
-            result.then(d => setResults(d.data[buyCoin]))
+            result.then(d => setResults(d.data.merchant[buyCoin]))
             .catch(err => console.log(err));
         };
         fetchData();
@@ -114,7 +114,7 @@ export const App: React.FC = () => {
             toggleFunc={toggleFunc}
             handlePay={({currentTarget}) => {
                 setPayCoin(currentTarget.getAttribute("name") ? currentTarget.getAttribute("name")! : "EUR");
-            }} 
+            }}
         />
       </>
     )

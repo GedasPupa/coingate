@@ -25,24 +25,20 @@ export const BuySell: React.FC<Props> = (props) => {
     return (
         <div className="main">
             <div className="background"></div>
-            <div className="main-flex">
-                <div className="main-left">
-                    <h1 className="main-title"><span className="green">Buy Bitcoin,</span> Ethereum, Litecoin and other crypto <span className="green">online</span></h1>
-                    <p className="text">Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
-                    <a href="http://example.com/" target="_blank" className="start-now" rel="noreferrer">Start now<span className="entitie">&gt;</span></a>
-                </div>
-                <div className="main-right">
-                    <div className="main-right-back">
-                    </div>
+            <div className="container">
+
+                <div className="row">
+                    <h1 className="main-title col-lg-6 col-12"><span className="green">Buy Bitcoin,</span> Ethereum, Litecoin and other crypto <span className="green">online</span></h1>
+                    <div className="main-right-back col-lg-6 col-12">
                     <form className="form" >
                         <div className="form-row">
                             <label>Pay</label>
-                            <input type="number" name="inputPay" id="inputPay" onChange={handleInputPay} value={inputPay} /> {/*// -- .toFixed(2) ???*/}
+                            <input type="number" name="inputPay" id="inputPay" onChange={handleInputPay} value={inputPay} />
                             <div className="line"></div>
                             <button 
                                 type="reset"
                                 style={{backgroundImage: `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/${pay.toLowerCase()}.png?raw=true)`}}
-                                onClick={toggleFunc}> {pay} <span><i style={{fontSize: "16px"}} className="fa fa-angle-down" aria-hidden="true"></i></span>
+                                onClick={toggleFunc}> {pay} <span><i className="fa fa-angle-down" aria-hidden="true"></i></span>
                             </button>
                         </div>
                         <div className="form-row">
@@ -52,7 +48,7 @@ export const BuySell: React.FC<Props> = (props) => {
                             <button 
                                 type="reset" 
                                 style={{backgroundImage: `url(https://github.com/spothq/cryptocurrency-icons/blob/master/32/icon/${buy.toLowerCase()}.png?raw=true)`}}
-                                onClick={toggleCoinFunc}>{buy} <span><i style={{fontSize: "16px"}} className="fa fa-angle-down" aria-hidden="true"></i></span>
+                                onClick={toggleCoinFunc}>{buy} <span><i className="fa fa-angle-down" aria-hidden="true"></i></span>
                             </button>
                         </div>
                         <p className="method">Payment method </p>
@@ -68,6 +64,11 @@ export const BuySell: React.FC<Props> = (props) => {
                         </div>
                         <a className="btn-buy" href="http://example.com/" target="_blank" rel="noreferrer">Buy {buy}</a>
                     </form>
+                    </div>
+                    <p className="text col-lg-6 col-12">Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!
+                    <br/><br/>
+                    <a href="http://example.com/" target="_blank" className="start-now" rel="noreferrer">Start now<span className="entitie">&gt;</span></a>
+                    </p>                    
                 </div>
             </div>
         </div>
